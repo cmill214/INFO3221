@@ -1,0 +1,105 @@
+---
+title: "Inclass Assignment"
+author: "John Doe"
+date: "9/03/1958"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, eval = TRUE)
+```
+
+# Handling Date & Time w/ `lubridate` Package
+
+# Run these lines first
+```{r}
+if (!require('tidyverse')) install.packages('tidyverse'); library('tidyverse')
+if (!require('lubridate')) install.packages('lubridate'); library('lubridate')
+if (!require('nycflights13')) install.packages('nycflights13'); library('nycflights13')
+```
+
+Q1. 
+Update the author name and date in YAML part above
+
+Q2. 
+A line of code to output current year, date, and time
+```{r}
+
+now()
+
+```
+
+Q3. 
+A line of code to parse date from "March 23rd 2022"
+```{r}
+
+mdy("March 23rd 2022")
+
+```
+
+Q4. 
+A line of code to parse date from "23rd March 2022 05:23:34" 
+```{r}
+
+dmy_hms("23rd March 2022 05:23:34")
+
+```
+
+Q5. 
+A line of code to return `flights` data column names
+```{r}
+
+colnames(flights)
+
+```
+
+Q6. 
+Three lines of code to select `year`, `month`, `day`, `hour`, `minute` columns from `flights` data and then 
+create a new column called `reservation` using `make_datetime()` function
+```{r}
+flights %>%
+  select(year, month, day, hour, minute) %>%
+  mutate(reservation = make_datetime(year, month, day, hour, minute))
+
+```
+
+Q7. 
+Using three lines of code for Q6, please add two additional codes to visualize 
+the count of `reservation` column using `ggplot()` and `geom_freqploly(binwidth = 86400)` functions (*1 day = 86400 seconds)
+```{r}
+flights %>%
+  select(year, month, day, hour, minute) %>%
+  mutate(reservation = make_datetime(year, month, day, hour, minute)) %>%
+  ggplot(aes(reservation)) +
+  geom_freqpoly(binwidth = 86400)
+
+```
+
+Q8. 
+Using three lines of code for Q6, please add three additional codes to make 
+a new column called `w_reservation` that contains days of the week for `reservation` column and its label
+and then `a bar plot` of `w_reservation` applying `ggplot()` and `geom_bar()` functions
+```{r}
+flights %>%
+  select(year, month, day, hour, minute) %>%
+  mutate(reservation = make_datetime(year, month, day, hour, minute)) %>%
+  mutate(w_reservation = wday(reservation, label = TRUE)) %>%
+  ggplot(aes(w_reservation)) +
+  geom_bar()
+
+```
+
+Q9. Bill Gates was born in Seattle on October 28, 1955. What day of the week was he born? Provide two lines of code for this question and exact answer.    
+```{r}
+birthday <- mdy("October 28 1955")
+wday(birthday, label = TRUE, abbr = FALSE)
+Friday
+```
+
+Q10. What is the time difference (as days) between today and Bill Gates birthday? Provide a line of code for this question and exact answer.  
+```{r}
+today() - mdy("October 28 1955")
+24253
+```

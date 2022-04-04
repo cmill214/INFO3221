@@ -1,0 +1,75 @@
+---
+title: "Inclass Assignment (2)"
+author: "Charles Miller" # your name
+date: "1/26/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, eval = TRUE)
+```
+
+# Data visualization using ggplot2 package 
+
+```{r, message=FALSE}
+install.packages("ggplot2") 
+library("ggplot2") 
+```
+
+Q1. Replace the current author name with your name in YAML part above. 
+
+Q2. What are three components for a single plot of ggplot2? 
+```{r}
+# component 1: data
+# component 2: mapping aes (x,y)
+# component 3: color
+```
+
+Q3. A line of code that shows a help page for ggplot2
+```{r}
+help("ggplot2")
+```
+
+## 2) Data preview
+
+Q4. A line of code that shows `midwest` data as a table
+```{r}
+View(midwest)
+```
+
+Q5. A line of code that shows `midwest` data summary
+```{r}
+summary(midwest)
+```
+
+Q6. A line of code that shows `midwest` data column name
+```{r}
+colnames(midwest)
+```
+
+Q7 A line of code that shows unique values in `state` column of `midwest` data
+```{r}
+unique(midwest$state)
+```
+
+
+Q8. A line of code that assigns `popamerindian` column as `x` position and `popasian` column as `y` position of `midwest` data to a variable `myplot` using `ggplot` function
+```{r, fig.height=3, fig.width=3}
+myplot <- ggplot(data = midwest, aes(x = "popamerindian", y = "popasion"))
+```
+
+Q9. Two lines of code that create a scatter plot of a variable `myplot` that you have made in Q8 
+```{r,  fig.height=3, fig.width=3}
+myplot +
+  geom_point()
+```
+
+Q10. Three lines of code that create subplots (three rows) by `state` column using two lines of code for Q9.
+
+```{r, fig.height=5, fig.width=5}
+myplot +
+  geom_point() +
+  facet_wrap(~ state,nrow = 3)
+```
+
+#### *End of document*

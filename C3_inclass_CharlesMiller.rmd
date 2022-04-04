@@ -1,0 +1,72 @@
+---
+title: "Inclass Assignment (1)" #Do not change
+author: "Charles Miller" #Add your full name 
+date: "1/19/2022" #Add today's date
+output: pdf_document #If knit to PDF does not work, knit to Word
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+```
+
+# Inclass Assignment (1) - closed book unless specified
+
+### To answer a question, remove `#YOUR CODE HERE` and #`YOUR ANSWER HERE`, and then write down your code and/or answer.
+
+### Q1. Replace `author name` with your name (line 3) and `date` with today's date (line 4) above.   
+
+### Q2. Install `ggplot2` package (remove #YOUR CODE HERE comment and then write down your code)
+```{r, echo=TRUE, error = TRUE, eval = FALSE}
+install.packages("ggplot2")
+```
+
+### Q3. Load `ggplot2` package
+```{r}
+library("ggplot2")
+```
+
+### Q4. You want to store a value 3.45 into the variable `float_new_project` as follows. Answer 1) whether the following code is correct or incorrect. 2) If incorrect, why? (0.5 point, respectively)
+```{r}
+float_new_project -> 3.45 
+# 1) Incorrect
+# 2) Sign should be flipped around to be <-
+```
+
+### Q5. You want to store a value `financial report` into the variable `2021 annual report` as follows. Answer 1) whether the following code is correct or incorrect. 2) If incorrect, why? (0.5 point, respectively)
+```{r}
+2021 annual report <- "financial report" 
+# 1) Correct
+# 2) YOUR ANSWER HERE
+```
+
+### Q6. Store five values `43, 21, 34, 19, 62` into the `ages` variable using `c()`
+### Assignment - multiple values (vector)
+```{r}
+ages <- c(43, 21, 34, 19, 62)
+```
+
+### Q7. Write a code that finds the minimun value of `ages` that you have created in Q6
+```{r}
+min(ages)
+```
+
+### Q8. Assign the value of 3 raised to 3 to a variable `generation`. Then, print out the value of `generation`.
+```{r}
+generation <- 3 ^ 3
+generation
+```
+
+### Q9. 1) Assign the value of square root 144 to a variable `tree`. Then, 2) print out `tree`. (0.5 point, respectively)
+```{r}
+tree <- sqrt(144)
+tree
+```
+
+### Q10. You want to store a text `mozart` into the variable `piano` as follows. Answer 1) whether the following code is correct or incorrect. 2) If incorrect, why? (0.5 point, respectively)
+```{r}
+piano <- mozart
+# 1) Incorrect
+# 2) need quotation marks around "mozart"
+```
+
+### *End of document*

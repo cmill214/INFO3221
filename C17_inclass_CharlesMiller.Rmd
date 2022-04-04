@@ -1,0 +1,86 @@
+---
+title: "Inclass Assignment (7)"
+author: "John Doe"
+date: "7/07/2020"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, eval = TRUE)
+```
+
+# Handling Text with `stringr` Package
+
+# Run these two lines first
+```{r}
+if (!require('tidyverse')) install.packages('tidyverse'); library('tidyverse') 
+if (!require('stringr')) install.packages('stringr'); library('stringr') 
+```
+
+Q1. Update the author name and date in YAML part above. 
+
+Q2. A line of code to create a variable `yolo` that stores a string of "You only live once" 
+```{r}
+
+yolo <- "You only live once"
+
+```
+
+Q3. A line of code to check data type of `yolo` variable
+```{r}
+
+typeof(yolo)
+
+```
+
+Q4. A line of code to return length of `yolo` variable
+```{r}
+
+str_length(yolo)
+
+```
+
+Q5. Add a correct parameter and value to return "You, only, live, once" (*note there are commas)
+```{r}
+
+str_c("You", "only", "live", "once", sep = ",")
+
+```
+
+Q6. Add a correct parameter and value to return "Youonlyliveonce" (*note there is no blank)
+```{r}
+
+paste("You", "only", "live", "once", sep = "")
+
+```
+
+Q7. Add a correct parameter and value to return "You_only_live_once" (*note there are underscores)
+```{r}
+
+paste("You", "only", "live", "once", sep = "_")
+
+```
+
+Q8. A line of code to return "You" "onl" "liv" "onc" using `yolo_con` variable and `str_sub()` function 
+```{r}
+yolo_con <- c("You", "only", "live", "once")
+str_sub(yolo_con,1,3)
+
+```
+
+Q9. A line of code that returns "live" "once" "only" "You" using `yolo_con` variable (*alphabetical order sorting)
+```{r}
+
+yolo_con <- c("You", "only", "live", "once")
+str_sort(yolo_con)
+
+```
+
+Q10. A line of code that returns "You", "only", "live", "once" as "Youonlyliveonce" using `paste0()` function
+```{r}
+
+paste0("You","only","live","once")
+
+```

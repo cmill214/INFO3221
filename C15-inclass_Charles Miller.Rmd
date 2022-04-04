@@ -1,0 +1,89 @@
+---
+title: "Inclass Assignment (6)"
+author: "Charles Miller"
+date: "3/2/2022"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, eval = TRUE)
+```
+
+# Run this line first
+```{r}
+if (!require('tidyverse')) install.packages('tidyverse'); library('tidyverse') 
+```
+
+Q1. Update the author name and date in YAML part above. 
+
+Q2. A line of code to import the `student.csv` file from your `Desktop` folder and create `department` data for this assignment
+```{r}
+department <- read.csv("C:/Users/cmill214/Desktop/student.csv")
+```
+
+Q3. A line of code to return column names of `department` data 
+```{r}
+colnames(department)
+```
+
+Q4. Two lines of code to divide `height` column of `department` data into `height_a` and `height_b`
+```{r}
+department %>%
+  separate(height, into = c("height_a", "height_b"))
+
+```
+
+Q5. Two lines of code to combine `sex` and `race` column into `demo` column (with an underscore)
+```{r}
+department %>%
+  unite(demo, sex, race)
+
+```
+
+Q6. Two lines of code to combine `sex` and `race` column into `demo` column (WITHOUT an underscore)
+```{r}
+
+department %>%
+  unite(demo, sex, race, sep = "")
+
+```
+
+#run this code to make a `stock` data
+```{r}
+stock <- tibble(
+  time   = c(2015, 2015, 2015, 2015, 2016, 2016, 2016),
+  division    = c(   1,    2,    3,    4,    2,    3,    4),
+  profit = c(23, 452, 888,   NA, 3234, 279, NA)
+)
+```
+
+Q7. How many implicit and explicit NA values does `stock` data have?
+```{r}
+View(stock)
+# implicit NA = 1
+# explicit NA = 2
+```
+
+Q8. Two lines of code to change implicit NA values into explicit ones using `pivot_wider()` (*tip: `time` and `profit` column)
+```{r}
+stock %>%
+  pivot_wider(names_from = time, values_from = profit)
+
+```
+
+Q9. Two lines of code to change implicit NA values to explicit ones using `complete()` (*tip: `time` and `division` column)
+```{r}
+stock %>%
+  complete(time, division)
+
+```
+
+Q10. Three lines of code to fill in the NA value with the most recent non-missing value using `fill()`
+```{r}
+stock %>%
+  complete(time, division)%>%
+  fill(profit)
+
+```

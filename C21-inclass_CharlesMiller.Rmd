@@ -1,0 +1,118 @@
+---
+title: "Inclass Assignment"
+author: "Charles Miller"
+date: "3/30/2022"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, eval = TRUE)
+```
+
+# if statement and function 
+
+Q1. 
+Update the author name and date in YAML part above. 
+
+Q2. 
+Lines of code to describe the basic syntax of `if` statement (use 'condition' and 'expression')
+```{r}
+if(condition1){
+  expression1
+}
+
+```
+
+Q3. 
+Bill's current height is 6.2. Create an if statement to print "Bill is taller than 5.8" if Bill's height is greater than 5.8. 
+```{r}
+
+Bill <- 6.2
+
+if(Bill > 5.8){
+  print("Bill is taller than 5.8")
+}
+
+```
+
+Q4. 
+The current number of student is 5. Create an `if statement` to print "number of student is not even" if the current number of student (`nstudent`) is an odd number, using `%%` operator to set a remainder of `nstudent` divided by 2 is NOT equal to zero. 
+```{r}
+
+nstudent <- 5
+if(nstudent %% 2 != 0){
+  print("number of student is not even")
+}
+
+```
+
+Q5. 
+Lines of code to describe the basic syntax of `else` statement (use 'condition' and 'expression')
+```{r}
+if(condition1){
+  expression1
+} else {
+  expression2
+}
+```
+
+Q6. 
+Using an `else statement`, Jane wants to print out "Profit is excellent!" if `profit` is greater than 100, while "Profit is not good" if `profit` is equal or less than 100. Please help her with writing a proper else statement.  
+```{r}
+profit <- 50
+if(profit > 100){
+  print("Profit is excellent!")
+} else {
+  print("Profit is not good")
+}
+```
+
+Q7. 
+Lines of code to describe the basic syntax of `else if` statement (use `condition`, `expression`, etc. as parameter names)
+```{r}
+if(condition1){
+  expression1
+} else if(condition2){
+  expression2
+} else {
+  condition3
+}
+
+```
+
+Q8. 
+Using an `else if statement`, James wants to print out "Profit is excellent!" if `profit` is equal to 100. At the same time, he wants to print out "Profit is good" if `profit` is equal to 50. Otherwise he wants to print out "Profit is not what I expected". Please help him with writing a proper else if statement. 
+```{r}
+if(profit == 100){
+  print("Profit is excellent!")
+} else if(profit == 50){
+  print("Profit is good")
+} else {
+  print("Profit is not what I expected")
+}
+
+
+```
+
+Q9. 
+Create a function with a single parameter `h` that includes an if statement where a print function ("The input is 10") works if `h` is equal to 10. And then assign the function to `findten`. 
+```{r}
+findten <- function(h){
+  if(h == 10)
+    print("The input is 10")
+}
+findten(10)
+```
+
+Q10. 
+Create a function with a single parameter `department` that includes two print functions. The first print function shows mean of `department` and the second print function outputs maximum value of `department`. And the assign the function to `printboth`.  
+```{r}
+printboth <- function(department){
+  print(mean(department))
+  print(max(department))
+}
+department <- c(45, 50, 55)
+printboth(department)
+```

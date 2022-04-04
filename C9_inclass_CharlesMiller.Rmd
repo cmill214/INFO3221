@@ -1,0 +1,72 @@
+---
+title: "Inclass Assignment (4)"
+author: "Charles Miller"
+date: "2/9/2022"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, eval = TRUE)
+```
+
+# Data manipulation using `dplyr` package (1)
+# If you don't know the answer, leave it blank. 
+# If you are caught cheating, you will be given minus 50 points.  
+
+# Run this chunk first
+```{r}
+if (!require('dplyr')) install.packages('dplyr'); library('dplyr') 
+```
+
+Q1. Update the author name and date in YAML part above. 
+
+Q2. A line of code that returns the first four rows of `starwars` dataset
+```{r}
+head(starwars, 4)
+```
+
+Q3. A line of code that returns the last six rows of `starwars` dataset
+```{r}
+tail(starwars, 6)
+```
+
+Q4. A line of code that returns unique values in `eye_color` column of `starwars`
+```{r}
+unique(starwars$eye_color) 
+```
+
+Q5. Explain the meaning of the following two abbreviations for R data type 
+```{r}
+# `int` = integer
+# `fctr` = factor
+```
+
+Q6. What is the role of `arrange()` function of the `dplyr` package? Use a hashtag when you add an answer.
+```{r}
+# arrange() = reorder rows
+```
+
+Q7. What is the role of `mutate()` function of the `dplyr` package? Use a hashtag when you add an answer.
+```{r}
+# mutate() = create new functions
+```
+
+Q8. A line of code that filters the rows by `height` values (167 or 96) of `starwars` data
+```{r}
+filter(starwars, height == 167 | height == 96)
+```
+
+Q9. A line of code that filters the rows by `height` values (167 or 96) of `starwars` data, using `%in%` operator
+```{r}
+filter(starwars, height %in% c(167, 96))
+```
+
+Q10. What is the hair color of the row in which `mass` is `82` and `birth_year` is `92`?
+```{r}
+filter(starwars, mass == 82, birth_year == 92)
+white hair
+```
+
+### *End of document*

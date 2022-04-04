@@ -1,0 +1,94 @@
+---
+title: "Inclass Assignment (3)"
+author: "Charles Miller"
+date: "2/2/2022"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, eval = TRUE)
+```
+
+```{r, include=FALSE}
+if (!require('ggplot2')) install.packages('ggplot2'); library('ggplot2') 
+```
+
+# Data visualization using ggplot2 package (2)
+
+***
+### If you want to make a presentation to review this assignment next Monday, please reach me at jlim13@uncc.edu
+
+### If you don't know the answer, leave it blank. If you are caught cheating, you will be given minus 50 points.   
+***
+
+Q1. Replace the author name with your name in YAML part above. 
+
+Q2. The first method for a quick overview of `msleep` data 
+```{r}
+
+summary(msleep)
+
+```
+
+Q3. The second method for a quick overview of `msleep` data 
+```{r}
+
+str(msleep)
+```
+
+Q4. A line of code that returns unique values in `vore` column of `msleep`
+```{r}
+
+unique(msleep$vore)
+
+```
+
+Q5. A line of code that assigns `vore` column as `x` position of `msleep` data to a variable `msleep_plot` using `ggplot` function
+```{r}
+msleep_plot <- ggplot(data = msleep, aes(x = vore))
+
+```
+
+Q6. Two lines of code that will return a bar plot of the `msleep_plot` variable 
+```{r, out.width='50%'}
+msleep_plot +
+  geom_bar()
+
+```
+
+Q7. Five lines of code that will return a bar plot of the `msleep_plot` variable with a title `Plot of count by vore`. X-axis is labeled as `vore` and y-axis as `count`.   
+```{r, out.width='50%'}
+msleep_plot +
+  geom_bar() +
+  ggtitle("Plot of count by vore") +
+  xlab("vore") +
+  ylab("count")
+```
+
+Q8. A line of code that assigns `vore` column as `x` position, proportion as "y" column of `msleep` data to a variable `msleep_prop'
+```{r} 
+msleep_prop <- ggplot(data = msleep, aes(x = vore, y = ..prop.., group = 1))
+
+```
+
+Q9. Five lines of code that will return a bar plot of the `msleep_prop` variable with a title `Plot of proportion by vore`. X-axis is labeled as `vore` and y-axis as `proportion`. 
+```{r}
+msleep_prop +
+  geom_bar() +
+  ggtitle("Plot of proportion by vore") +
+  xlab("vore") +
+  ylab("proportion")
+
+```
+
+Q10. Two lines of code that will directly create a simple stacked bar plot that shows the count by `vore` column of `msleep` data with filling color by `conservation` column
+```{r}
+ggplot(data = msleep, aes(x = vore, fill = conservation)) +
+  geom_bar()
+  
+
+```
+
+### *End of document*
